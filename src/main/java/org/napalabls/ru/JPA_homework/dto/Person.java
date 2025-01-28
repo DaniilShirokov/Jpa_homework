@@ -1,25 +1,24 @@
 package org.napalabls.ru.JPA_homework.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import org.napalabls.ru.JPA_homework.dto.PersonId;
 
 @Data
 @Entity
-@Table(name = "persons")
+@Table(name = "PERSONS")
 @IdClass(PersonId.class)
-@AllArgsConstructor
-@NoArgsConstructor
+public class PersonCopy {
+    @Id
+    private String name;
 
-public class Person {
+    @Id
+    private String surname;
 
-    @EmbeddedId
-    private PersonId personId;
-    @JsonProperty("phone_number")
+    @Id
+    private int age;
+
     private String phoneNumber;
-    @JsonProperty("city_of_living")
     private String cityOfLiving;
 }
+
